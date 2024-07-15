@@ -1,0 +1,48 @@
+name: leuchtfeuer/product
+table: tx_products_domain_model_product
+prefixFields: false
+labelField: title
+security:
+  ignorePageTypeRestriction: true
+fields:
+  - identifier: title
+    type: Text
+    label: Title
+    required: true
+  - identifier: description
+    type: Textarea
+    label: Description
+    enableRichtext: true
+  - identifier: price
+    type: Number
+    label: Price
+    format: decimal
+    required: true
+  - identifier: category
+    type: Select
+    renderType: selectSingle
+    label: Category
+    items:
+      - label: 'Category 1'
+        value: 1
+      - label: 'Category 2'
+        value: 2
+      - label: 'Category 3'
+        value: 3
+  - identifier: image
+    type: File
+    label: Image
+    allowed:
+      - jpg
+      - jpeg
+      - png
+      - gif
+  - identifier: rating
+    type: Number
+    label: Rating
+    range:
+      lower: 0
+      upper: 5
+    slider:
+      step: 0.1
+      width: 200px
